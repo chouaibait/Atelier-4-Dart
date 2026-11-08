@@ -10,16 +10,20 @@ Couleur.rouge() : this(255, 0, 0);
 Couleur.vert() : this(0, 255, 0);
 
 Couleur.bleu() : this(0, 0, 255);
+
+void afficherCouleur() {
+  print('(R : $r, V : $g, B : $b)');
+}
 }
 
 
 void main() {
 final rouge = Couleur.rouge();
-print('Rouge : ${rouge.r}, ${rouge.g}, ${rouge.b}');
+rouge.afficherCouleur();
 
 final vert = Couleur.vert();
-print('Vert : ${vert.r}, ${vert.g}, ${vert.b}');
+vert.afficherCouleur();
 
 final bleu = Couleur.bleu();
-print('Bleu : ${bleu.r}, ${bleu.g}, ${bleu.b}');
+bleu.afficherCouleur();
   }
