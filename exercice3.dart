@@ -1,16 +1,19 @@
 class Compte {
   double _solde;
+  final String numeroCompte;
 
-  Compte(double solde) : _solde = solde;
-double get solde => _solde;
+  Compte(this.numeroCompte, [double solde = 0.0]) : _solde = solde;
+String get solde => '${_solde.toStringAsFixed(2)} \$';
 
-void deposer(double montant) {
-  _solde += montant;
+void depot(double montant) {
+  if (montant > 0) {
+    _solde += montant;
   }
+}
   }
 
   void main() {
-    final compte = Compte(100);
-    compte.deposer(50);
+    final compte = Compte('C001', 100);
+    compte.depot(50);
     print('Solde : ${compte.solde}');
 }
