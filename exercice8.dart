@@ -13,9 +13,19 @@ void afficherInfos() {
   }
 
   int get pages => _pages;
+
+  static void afficherTotalLivres() {
+  print('Nombre total de livres : $totalLivres');
+}
   }
   class Roman extends Livre {
-  Roman(String titre, String auteur) : super(titre, auteur);
+    final String genre;
+
+  Roman(String titre, String auteur, this.genre) : super(titre, auteur);
+
+  void afficherGenre() {
+   print('Genre : $genre');
+}
 }  
 
   void main() {
@@ -25,7 +35,11 @@ void afficherInfos() {
      livre1.afficherInfos();
      livre2.afficherInfos();
 
-     final roman1 = Roman('Notre-Dame de Paris', 'Victor Hugo');
+     final roman1 = Roman('Notre-Dame de Paris', 'Victor Hugo', 'Historique');
     roman1.afficherInfos();
-     print('Nombre total de livres : ${Livre.totalLivres}');
+    roman1.afficherGenre();
+    final roman2 = Roman('Sherlock Holmes', 'Arthur Conan Doyle', 'Policier');
+    roman2.afficherInfos();
+    roman2.afficherGenre();
+     Livre.afficherTotalLivres();
  }
