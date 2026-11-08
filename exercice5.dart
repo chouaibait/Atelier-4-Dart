@@ -1,6 +1,10 @@
 abstract class Forme {
-    double aire();
-    }
+  double calculerAire();
+
+  void afficherMessage() {
+   print('Calcul de l\'aire...');
+  }
+}
 
     class Cercle extends Forme {
       final double rayon;
@@ -8,7 +12,7 @@ abstract class Forme {
       Cercle(this.rayon);
 
       @override
-      double aire() {
+      double calculerAire() {
         return 3.14159 * rayon * rayon;
         }
         
@@ -21,15 +25,17 @@ class Rectangle extends Forme {
   Rectangle(this.largeur, this.hauteur);
 
   @override
-  double aire() {
+  double calculerAire() {
     return largeur * hauteur;
     }
 }
 
 void main() {
   final cercle = Cercle(3);
-  print('Aire du cercle : ${cercle.aire()}');
+  cercle.afficherMessage();
+print('Aire du cercle : ${cercle.calculerAire()}');
 
   final rectangle = Rectangle(4, 5);
-  print('Aire du rectangle : ${rectangle.aire()}');
+  rectangle.afficherMessage();
+print('Aire du rectangle : ${rectangle.calculerAire()}');
 }
