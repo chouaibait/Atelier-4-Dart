@@ -26,3 +26,14 @@ class BaseDeDonnees implements Connectable {
       print('BaseDeDonnees : Déconnexion réussie.');
       }
 }
+
+void main() {
+   final List<Connectable> services = [
+     ServeurAPI(),
+     BaseDeDonnees(),
+       ];
+       for (final service in services) {
+         service.connecter('Utilisateur1');
+         service.deconnecter();
+}
+}
