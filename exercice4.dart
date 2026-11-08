@@ -3,37 +3,42 @@ class Media {
 
   Media(this.titre);
 
-  void afficherInfo() {
-    print('Média : $titre');
+  void afficherType() {
+    print('Ceci est un média générique.');
     }
   }
 
   class Livre extends Media {
+    final String auteur;
 
-    Livre(String titre) : super(titre);
+    Livre(String titre, this.auteur) : super(titre);
 
     @override
-    void afficherInfo() {
-      print('Livre : $titre');
+    void afficherType() {
+      print('Ceci est un Livre : $titre par $auteur.');
       }
 }
 
 class Film extends Media {
+  final int dureeMinutes;
 
-  Film(String titre) : super(titre);
+  Film(String titre, this.dureeMinutes) : super(titre);
 
   @override
-  void afficherInfo() {
-    print('Film : $titre');
+  void afficherType() {
+    print('Ceci est un Film : $titre, durée : $dureeMinutes minutes.');
     }
 }
 
 void main() {
-   final media = Media('Documentaire');
-    final livre = Livre('Le Petit Prince');
-     final film = Film('Titanic');
+  List<Media> catalogue = [
+  Livre('Le Petit Prince', 'Antoine de Saint-Exupéry'),
+  Film('Titanic', 195),
+  Livre('Les Misérables', 'Victor Hugo'),
+  Film('Avatar', 162),
+];
 
-     media.afficherInfo();
-     livre.afficherInfo();
-     film.afficherInfo();
+for (final media in catalogue) {
+  media.afficherType();
+}
 }
